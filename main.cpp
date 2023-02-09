@@ -1,8 +1,10 @@
 #include <iostream>
+#include <iostream>
 #include <fstream>
 #include <sstream>
 #include "Token.h"
 #include "Scanner.h"
+#include "Parser.h"
 using namespace std;
 
 int main(int args, char** argv) {
@@ -26,10 +28,10 @@ int main(int args, char** argv) {
 	Scanner s = Scanner(input);
 	//Scanner s = Scanner("+\n-\n<\n>\n[\n]\n,\n.\n");
 	vector<Token> t = s.scanToken();
-	for (long unsigned int i = 0; i < t.size(); i++) {
-		cout << t[i].toString() << endl;
-	}
 
-	cout << "Total Tokens = " << t.size() << endl;
+	Parser p = Parser(t);
+
+	p.Start();//TODO: write the rules for parsing
+
 	return 0;
 }
