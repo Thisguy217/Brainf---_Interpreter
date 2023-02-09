@@ -38,4 +38,8 @@ class Token {
 			}
 			return "ERROR";
 		}
+
+		TokenType getType() const {
+			return type;
+		}
 };
