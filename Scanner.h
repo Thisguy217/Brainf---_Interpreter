@@ -62,8 +62,12 @@ class Scanner {
                     input = input.substr(1);
                 } else {
                     int eos = -1;
-                    for (long unsigned int i = 1; i < input.size(); i++) {
-                        if (input[i] == '+' || input[i] == '-' || input[i] == ',' || input[i] == '.' || input[i] == '<' || input[i] == '>' || input[i] == '[' || input[i] == ']') {
+                    for (long unsigned int i = 1; i < input.length(); i++) {
+                        if (input.at(i) == '+' || input.at(i) == '-' || input.at(i) == ',' || input.at(i) == '.' || input.at(i) == '<' || input.at(i) == '>' || input.at(i) == '[' || input.at(i) == ']') {
+                            eos = i;
+                            break;
+                        }
+			if ((input.length() - 1 - i) == 0) {
                             eos = i;
                             break;
                         }
